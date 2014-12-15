@@ -12,58 +12,50 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class QuestionDTO implements Serializable  {
 
 	// --- Variables ---
-	private Long ID;
-	private String text;
+	private Long id;
+	private String questionText;
 	private String countryCode;
 	private Boolean accepted;
 	private Date created;
 
-
 	// --- Methods ---
 	public QuestionDTO() {}
 
-	public QuestionDTO(Long ID, String text, String countryCode, Boolean accepted, Date created) {
-		this.ID = ID;
-		this.text = text;
+	public QuestionDTO(Long id, String text, String countryCode, Boolean accepted, Date created) {
+		this.id = id;
+		this.questionText = text;
 		this.countryCode = countryCode;
 		this.accepted = accepted;
 		this.created = created;
 	}
 
-	public Long getID() {
-		return ID;
+	public Long getId() {
+		return id;
 	}
 
-
-	public void setID(Long iD) {
-		ID = iD;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-
-	public String getText() {
-		return text;
+	public String getQuestionText() {
+		return questionText;
 	}
-
-
-	public void setText(String text) {
-		this.text = text;
+	
+	public void setQuestionText(String questionText) {
+		this.questionText = questionText;
 	}
-
 
 	public String getCountryCode() {
 		return countryCode;
 	}
 
-
 	public void setCountryCode(String countryCode) {
 		this.countryCode = countryCode;
 	}
 
-
 	public Boolean getAccepted() {
 		return accepted;
 	}
-
 
 	public void setAccepted(Boolean accepted) {
 		this.accepted = accepted;

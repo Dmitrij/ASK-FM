@@ -1,25 +1,21 @@
-/*package com.dmma.discoverer.core.configuration;
+package com.dmma.askfm.core.configuration;
 
 import org.constretto.annotation.Configuration;
 import org.constretto.annotation.Configure;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Environment;
 
-import com.dmma.base.usersandroles.app.entities.User;
-import com.dmma.base.usersandroles.app.entities.UserRole;
-import com.dmma.boat.db.entities.Route;
-import com.dmma.boat.db.entities.Waypoint;
+import com.dmma.askfm.db.entities.Question;
 
-*//**
+/**
  * use in applicationContext.xml
  * 
  * <!-- HIBERNATE SESSION FACTORY -->
  * < bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
- *   <property name="configurationClass" value="com.dmma.boat.core.configuration.ApplicationDBConfiguration" />
+ *   <property name="configurationClass" value=".....core.configuration.ApplicationDBConfiguration" />
  * < / bean>
- *//*
+ */
 public class ApplicationDBConfiguration extends AnnotationConfiguration{
-	private static final long serialVersionUID = -3085599947632203102L;
 
 	public ApplicationDBConfiguration() {
 		AppProperties.constrettoConfiguration.on(this);
@@ -72,11 +68,6 @@ public class ApplicationDBConfiguration extends AnnotationConfiguration{
 	}
 	
 	private void configureEntities(){
-		this.addAnnotatedClass(User.class);
-		this.addAnnotatedClass(UserRole.class);
-		
-		this.addAnnotatedClass(Route.class);
-		this.addAnnotatedClass(Waypoint.class);
+		this.addAnnotatedClass(Question.class);
 	}
 }
-*/

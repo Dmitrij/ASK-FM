@@ -10,8 +10,23 @@
                            default-autowire="byName">
                            
 	<!-- Beans -->
+	
+	<!-- HIBERNATE SESSION FACTORY -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configurationClass" value="com.dmma.askfm.core.configuration.ApplicationDBConfiguration" />
+	</bean>
 
+	<!-- DAO -->
+	<bean id="questionDAO" class="com.dmma.askfm.db.daos.QuestionDAO" />
+	
     <!-- Services -->
  	<bean id="questionAppService"  class="com.dmma.askfm.core.services.QuestionAppServiceImpl" scope="singleton"/>
               
+ 	<!-- DataInitializers -->
+	<bean name="dataInitializer" class="com.dmma.askfm.core.datainitializer.DataInitializer" scope="singleton">
+		<property name="questionDAO" ref="questionDAO" />
+		<property name="ready" value="true"/>
+	</bean>
+ 	
+ 	
 </beans>

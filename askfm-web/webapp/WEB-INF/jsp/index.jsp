@@ -21,6 +21,11 @@
 	<div>
 		<a href='<c:url value="/ws/questionRS/questionListGET"/>'>list all accepted questions</a>
 	</div> 
+	<div>
+		<form action="ws/questionRS/questionList" method="post">
+			<input type="submit">
+		</form> 
+	</div> 
 		
 </body>
 </html>
