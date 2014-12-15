@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.dmma.askfm</groupId>
+	<artifactId>askfm-parrent</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<name>ASK-FM Parrent</name>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>askfm-dto</module>
+		<module>askfm-ws-api</module>
+		<module>askfm-android-client</module>
+		<module>askfm-web</module>
+	</modules>
+
+	<properties>
+		<!-- use UTF-8 for everything -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<downloadSources>true</downloadSources>
+		<downloadJavadocs>true</downloadJavadocs>
+
+		<jdk.source>1.7</jdk.source>
+		<jdk.target>1.7</jdk.target>
+		
+		<spring.version>4.0.6.RELEASE</spring.version>
+		<cxf.version>3.0.1</cxf.version>
+		<!-- springsecurity.version>3.1.4.RELEASE</springsecurity.version -->
+		<!-- hibernate.version>3.5.0-Final</hibernate.version -->
+		<!-- mysqlconnector.version>5.1.13</mysqlconnector.version -->
+		<!-- junit.version>4.8.1</junit.version -->
+		<slf4j.version>1.7.7</slf4j.version>
+	</properties>
+
+	<prerequisites>
+		<maven>2.2.1</maven>
+	</prerequisites>
+
+	<repositories>
+		<repository>
+			<id>central</id>
+			<name>Maven Repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>${jdk.source}</source>
+					<target>${jdk.target}</target>
+					<encoding>UTF-8</encoding>
+					<showDeprecation>false</showDeprecation>
+					<showWarnings>true</showWarnings>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+	</dependencies>
+
+</project>
