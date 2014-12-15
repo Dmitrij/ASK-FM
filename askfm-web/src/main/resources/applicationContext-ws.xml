@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:cxf="http://cxf.apache.org/core"
+       xmlns:util="http://www.springframework.org/schema/util" 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://cxf.apache.org/core
+        http://cxf.apache.org/schemas/core.xsd
+        http://cxf.apache.org/jaxws
+        http://cxf.apache.org/schemas/jaxws.xsd
+        http://cxf.apache.org/jaxrs 
+        http://cxf.apache.org/schemas/jaxrs.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd"
+       default-autowire="byName">
+
+    <import resource="classpath:META-INF/cxf/cxf.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml" /> 
+        
+	
+	<bean id="questionWS" class="com.dmma.askfm.ws.QuestionWSImpl"/>
+	
+	
+	<!-- Collaboration Service -->
+    <jaxws:endpoint id="questionWSEndpoint"
+                    implementor="#questionWS"
+                    address="/questionWS">
+        <jaxws:properties>
+            <entry key="exceptionMessageCauseEnabled" value="true"/>
+        </jaxws:properties>
+    </jaxws:endpoint>
+	
+	<bean id="questionRS" class="com.dmma.askfm.ws.QuestionRSImpl"/>
+ 	
+ 	<!-- Problem - when I have only one element, it returns the String instead an array with a json -->
+ 	<!-- By default, Jettison wrongly serializes List objects containing a single value only. 
+ 	To work around this issue, one needs to enable a 'serializeAsArray' feature on a JSONProvider,
+ 	with the additional option of specifying the individual fields which needs to be processed accordingly using an 'arrayKeys' property -->
+ 	<util:list id="jsonKeys">
+      <value>discoveredPorts</value>
+      <value>myArray2</value>
+    </util:list>
+    
+  	<bean id="jsonProvider" class="org.apache.cxf.jaxrs.provider.json.JSONProvider">
+       <property name="dropRootElement" value="true" />
+       <property name="serializeAsArray" value="true"/>
+       <property name="arrayKeys" ref="jsonKeys"/>
+    </bean>     
+    
+    <jaxrs:server id="questionRSEndpoint" address="/questionRS">
+        <jaxrs:serviceBeans>
+        	<ref bean="questionRS" />
+        </jaxrs:serviceBeans>
+        <jaxrs:providers>
+			<ref bean="jsonProvider" />
+		</jaxrs:providers>
+    </jaxrs:server>
+	
+	
+</beans>
