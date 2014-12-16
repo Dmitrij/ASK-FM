@@ -35,6 +35,14 @@ public class Question {
 		created = new Date();
 		accepted = false;
 	}
+	
+	public Question(String questionText, String countryCode){
+		this.questionText = questionText;
+		this.countryCode = countryCode;
+		created = new Date();
+		accepted = true;
+	}
+	
 
 	public Long getId() {
 		return id;

@@ -15,6 +15,6 @@ public interface QuestionAppService {
 	
 	QuestionDTO readQuestion(Long id);
 	
-	QuestionSubmissionResponse publishQuestion(String questionText);
+	QuestionSubmissionResponse publishQuestion(String questionText, String remoteAddr);
 	
 }

@@ -30,7 +30,7 @@ public class QuestionWSImpl implements QuestionWS{
 	
 	@Override
 	public QuestionSubmissionResponse publishQuestion(String questionText) {
-		return questionAppService.publishQuestion(questionText);
+		return questionAppService.publishQuestion(questionText, null);
 	}
 
 	// -- Setters --

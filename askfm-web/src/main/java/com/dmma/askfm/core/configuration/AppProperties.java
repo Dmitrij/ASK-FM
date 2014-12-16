@@ -15,6 +15,7 @@ public class AppProperties {
 	public static final String defaultCountryCode;
 	public static final Integer questionNumberLimit;
 	public static final Integer questionIntervalLimit;
+	public static final String geoipServiceURL;
 
 	static{
 		constrettoConfiguration = new ConstrettoBuilder().createPropertiesStore()
@@ -28,6 +29,8 @@ public class AppProperties {
 		
 		questionNumberLimit    = constrettoConfiguration.evaluateToInt("questionNumberLimit");
 		questionIntervalLimit  = constrettoConfiguration.evaluateToInt("questionIntervalLimit");
+		
+		geoipServiceURL = constrettoConfiguration.evaluateToString("geoipServiceURL");
 	
 		LOG.info("AppProperties initialized. Using environment="+environment);
 	} 
