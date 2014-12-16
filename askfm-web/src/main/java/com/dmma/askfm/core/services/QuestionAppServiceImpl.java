@@ -1,10 +1,14 @@
 package com.dmma.askfm.core.services;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.dmma.askfm.core.configuration.AppProperties;
 import com.dmma.askfm.core.mappers.QuestionMapper;
 import com.dmma.askfm.db.daos.QuestionDAO;
 import com.dmma.askfm.db.entities.Question;
@@ -16,6 +20,9 @@ public class QuestionAppServiceImpl implements QuestionAppService {
 	// --- Constants ---
 	private final static Logger LOG = LoggerFactory.getLogger(QuestionAppServiceImpl.class);
 	
+	private final Map<String, Long> lastRequest = new ConcurrentHashMap<String, Long>();
+	private final Long minQuestionInterval;  
+	
 	// --- Variables ---
 	private ProfanityAppService profanityAppService;
 	private LocationAppService locationAppService;
@@ -24,6 +31,8 @@ public class QuestionAppServiceImpl implements QuestionAppService {
 	// --- Methods ---
 	public QuestionAppServiceImpl() {
 		LOG.info("ControlAppServiceImpl - init");
+		Double interval = 1000 / AppProperties.questionsPerSecond;
+		minQuestionInterval = interval.longValue();
 	}
 
 	@Override
@@ -55,6 +64,15 @@ public class QuestionAppServiceImpl implements QuestionAppService {
 		}
 		
 		String countryCode = locationAppService.detectCountryCode(remoteAddr);
+		Long now = new Date().getTime();
+		Long latTimeStamp = lastRequest.get(countryCode);
+		if(latTimeStamp != null && latTimeStamp > now - minQuestionInterval ){
+			retVal.setErrorMsg("too many requests");
+			retVal.setStatusCode(0);
+			return retVal;
+		}
+		
+		lastRequest.put(countryCode, now);
 		
 		Question entity = new Question(questionText, countryCode);
 		questionDAO.saveOrUpdate(entity);

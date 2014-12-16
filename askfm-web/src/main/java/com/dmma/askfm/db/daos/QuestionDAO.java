@@ -19,14 +19,15 @@ public class QuestionDAO extends BaseDAO<Question, Long> {
 	public List<Question> findByCountryCode(String countryCode) {
 		log.debug("findByCountryCode = "+ countryCode); 
 		
-		Session sesion = sessionFactory.openSession();
+		Session session = sessionFactory.openSession();
 		try{
-			Query query = sesion.createQuery("from Question where countryCode = ?");
+			Query query = session.createQuery("from Question where countryCode = ?");
 			query.setString(0, countryCode);
 			return query.list();
 		}finally{
-			sesion.close();
+			session.close();
 		}
 	}
-
+	
+	
 }

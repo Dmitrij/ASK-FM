@@ -13,8 +13,7 @@ public class AppProperties {
 	public static final String environment;
 	public static final Boolean useDataInitializer;
 	public static final String defaultCountryCode;
-	public static final Integer questionNumberLimit;
-	public static final Integer questionIntervalLimit;
+	public static final Double questionsPerSecond;
 	public static final String geoipServiceURL;
 
 	static{
@@ -27,8 +26,7 @@ public class AppProperties {
 		useDataInitializer = constrettoConfiguration.evaluateToBoolean("useDataInitializer");
 		defaultCountryCode = constrettoConfiguration.evaluateToString("defaultCountryCode");
 		
-		questionNumberLimit    = constrettoConfiguration.evaluateToInt("questionNumberLimit");
-		questionIntervalLimit  = constrettoConfiguration.evaluateToInt("questionIntervalLimit");
+		questionsPerSecond    = constrettoConfiguration.evaluateToDouble("questionsPerSecond");
 		
 		geoipServiceURL = constrettoConfiguration.evaluateToString("geoipServiceURL");
 	

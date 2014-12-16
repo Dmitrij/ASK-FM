@@ -21,9 +21,10 @@
 	
 	<table>
 		<tr>
-			<th></th>
+			<th>Goal</th>
 			<th>Path param</th>
 			<th>Form param</th>
+			<th>Web view</th>
 		</tr>
 		<tr>
 			<td>List of all accepted questions</td>
@@ -34,6 +35,9 @@
 				<form action="ws<%=RSPaths.RS_PublicService_Endpoint + RSPaths.RS_PATH_questionListPOST %>" method="post">
 					<input type="submit">
  				</form> 
+			</td>
+			<td>
+				<a href="questionlist.do">click to all</a>
 			</td>
 		</tr>
 		<tr>
@@ -47,6 +51,9 @@
 					<input type="submit">
  				</form> 
 			</td>
+			<td>
+				<a href="questionlistbycountry.do?country=be">click to see BE</a>
+			</td>
 		</tr>
 		<tr>
 			<td>Publish questions</td>
@@ -58,6 +65,8 @@
 					<input type="text" name="<%=RSParams.questionText%>" value="Why the sky is blue?">
 					<input type="submit">
  				</form> 
+			</td>
+			<td>
 			</td>
 		</tr>
 	</table>
