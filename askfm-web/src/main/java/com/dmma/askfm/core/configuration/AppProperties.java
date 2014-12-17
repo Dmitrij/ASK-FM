@@ -6,6 +6,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.DefaultResourceLoader;
 
+/**
+ * @author <a href="dmitrijs.marcenkovs@gmail.com">Dmitrijs Marcenkovs</a>
+ */
 public class AppProperties {
 	private final static Logger LOG = LoggerFactory.getLogger(AppProperties.class);
 	

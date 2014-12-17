@@ -7,6 +7,8 @@ import com.dmma.askfm.db.entities.Question;
 import com.dmma.askfm.dto.shared.dtos.QuestionDTO;
 
 /**
+ * 
+ * 
  * @author <a href="mailto:dmitrijs.marcenkovs@gmail.com">Dmitrijs Marcenkovs</a>
  */
 public class QuestionMapper{ 

@@ -1,24 +1,49 @@
 package com.dmma.askfm.dto.shared.callbacks;
 
+
+/**
+ * A class represents JSON Output Schema from Telize.com
+ * 
+ * @author <a href="dmitrijs.marcenkovs@gmail.com">Dmitrijs Marcenkovs</a>
+ */
 public class GeoIpJSON {
 
+	// --- Variables ---
+	/** Visitor IP address, or IP address specified as parameter */
 	private String ip;
+	
+	/** Two-letter ISO 3166-1 alpha-2 country code */
 	private String country_code;
+	
 	private String country_code3;
+	
 	private String country;
+	
 	private String region_code;
+	
 	private String region;
+	
 	private String city;
+	
 	private String postal_code;
+	
 	private String continent_code;
+	
 	private String latitude;
+	
 	private String longitude;
+	
 	private String dma_code;
+	
 	private String area_code;
+	
 	private String asn;
+	
 	private String isp;
+	
 	private String timezone;
 
+	// --- Methods ---
 	public GeoIpJSON() {
 	}
 

@@ -9,6 +9,11 @@ import com.dmma.askfm.core.configuration.AppProperties;
 import com.dmma.askfm.db.daos.QuestionDAO;
 import com.dmma.askfm.db.entities.Question;
 
+/**
+ * Since we have in memory DB, it would be good to start application with already pre filled data
+ * 
+ * @author <a href="dmitrijs.marcenkovs@gmail.com">Dmitrijs Marcenkovs</a>
+ */
 public class DataInitializer {
 	private final static Logger LOG = LoggerFactory.getLogger(DataInitializer.class);
 

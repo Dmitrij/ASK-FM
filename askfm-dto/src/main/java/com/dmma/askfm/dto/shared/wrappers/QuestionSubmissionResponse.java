@@ -3,6 +3,9 @@ package com.dmma.askfm.dto.shared.wrappers;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * A response for question submition action
+ * 
+ * @author <a href="dmitrijs.marcenkovs@gmail.com">Dmitrijs Marcenkovs</a> 
  */
 @XmlRootElement(name="questionSubmissionResponse")
 public class QuestionSubmissionResponse {

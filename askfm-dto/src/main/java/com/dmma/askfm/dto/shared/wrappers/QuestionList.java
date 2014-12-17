@@ -9,6 +9,9 @@ import com.dmma.askfm.dto.shared.dtos.QuestionDTO;
 
 
 /**
+ * A wrapper for list of question.  
+ * 
+ * @author <a href="dmitrijs.marcenkovs@gmail.com">Dmitrijs Marcenkovs</a>
  */
 @XmlRootElement(name="questionList")
 public class QuestionList implements Serializable  {

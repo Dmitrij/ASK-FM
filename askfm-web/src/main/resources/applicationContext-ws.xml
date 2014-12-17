@@ -43,8 +43,7 @@
  	To work around this issue, one needs to enable a 'serializeAsArray' feature on a JSONProvider,
  	with the additional option of specifying the individual fields which needs to be processed accordingly using an 'arrayKeys' property -->
  	<util:list id="jsonKeys">
-      <value>discoveredPorts</value>
-      <value>myArray2</value>
+      <value>questions</value>
     </util:list>
     
   	<bean id="jsonProvider" class="org.apache.cxf.jaxrs.provider.json.JSONProvider">

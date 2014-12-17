@@ -1,6 +1,11 @@
 package com.dmma.askfm.dto.shared.constants;
 
-
+/**
+ * This class contains Web service  URI paths constants<br>
+ * see {@link RSPaths}
+ * 
+ * @author <a href="dmitrijs.marcenkovs@gmail.com">Dmitrijs Marcenkovs</a>
+ */
 public interface RSPaths {
 	static final String RS_PublicService_Endpoint = "/questionRS";
 	

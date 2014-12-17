@@ -7,6 +7,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
+ * Simple DTO that will contain the Question published by client
+ * 
+ * @author <a href="dmitrijs.marcenkovs@gmail.com">Dmitrijs Marcenkovs</a>
  */
 @XmlRootElement(name="questionDTO")
 public class QuestionDTO implements Serializable  {

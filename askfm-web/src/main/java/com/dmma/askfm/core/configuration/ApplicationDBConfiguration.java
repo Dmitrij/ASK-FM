@@ -14,6 +14,8 @@ import com.dmma.askfm.db.entities.Question;
  * < bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
  *   <property name="configurationClass" value=".....core.configuration.ApplicationDBConfiguration" />
  * < / bean>
+ * 
+ * @author <a href="dmitrijs.marcenkovs@gmail.com">Dmitrijs Marcenkovs</a>
  */
 public class ApplicationDBConfiguration extends AnnotationConfiguration{
 
