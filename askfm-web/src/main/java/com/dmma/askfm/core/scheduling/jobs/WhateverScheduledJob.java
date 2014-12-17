@@ -13,6 +13,7 @@ public class WhateverScheduledJob {
 	@SuppressWarnings("unused")
 	private QuestionAppService questionAppService;
 		
+	// --- Methods ---
 	public WhateverScheduledJob() {
 		LOG.info("WhateverScheduledJob bean created.");
 	}

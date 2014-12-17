@@ -21,14 +21,11 @@ public class AppProperties {
 				.addResource(new DefaultResourceLoader().getResource("classpath:askfm.properties")).done()
 				.getConfiguration();
 		
-		environment         = constrettoConfiguration.evaluateToString("environment");
-
+		environment        = constrettoConfiguration.evaluateToString("environment");
 		useDataInitializer = constrettoConfiguration.evaluateToBoolean("useDataInitializer");
 		defaultCountryCode = constrettoConfiguration.evaluateToString("defaultCountryCode");
-		
-		questionsPerSecond    = constrettoConfiguration.evaluateToDouble("questionsPerSecond");
-		
-		geoipServiceURL = constrettoConfiguration.evaluateToString("geoipServiceURL");
+		questionsPerSecond = constrettoConfiguration.evaluateToDouble("questionsPerSecond");
+		geoipServiceURL    = constrettoConfiguration.evaluateToString("geoipServiceURL");
 	
 		LOG.info("AppProperties initialized. Using environment="+environment);
 	} 

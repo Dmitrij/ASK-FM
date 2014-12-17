@@ -143,12 +143,19 @@
     	</dependency>
 
 		<!-- ***************************** MySQL ***************************** -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysqlconnector.version}</version>
-		</dependency>
+		</dependency> -->
 		
+		<!-- ***************************** H2 ***************************** -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.183</version>
+		</dependency>
+				
 		<!-- ************************** Constretto *************************** -->
 		<dependency>
 			<groupId>org.constretto</groupId>

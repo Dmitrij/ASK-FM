@@ -13,9 +13,13 @@ import org.springframework.core.io.DefaultResourceLoader;
 
 
 public class ProfanityAppServiceImpl implements ProfanityAppService{
+	// --- Constants ---
 	private final static Logger LOG = LoggerFactory.getLogger(ProfanityAppServiceImpl.class);
-	private final Set<String> badWords;
 	
+	// --- Variables ---
+	private final Set<String> badWords;
+
+	// --- Methods ---
 	public ProfanityAppServiceImpl() {
 		badWords = new HashSet<String>();
 		try {
@@ -49,9 +53,5 @@ public class ProfanityAppServiceImpl implements ProfanityAppService{
 		}
 		return true;
 	}
-	
-	
-	
-	
 	
 }

@@ -21,6 +21,7 @@ public class LocationAppServiceImpl implements LocationAppService{
 
 	// --- Variables ---
 
+	// --- Methods ---
 	public LocationAppServiceImpl() {
 	}
 

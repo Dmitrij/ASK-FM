@@ -1,0 +1,60 @@
+
+Project structure/modules
+	In order to have a scalable application, we need to break things into modular areas, make code reusable as much as possible.
+    I'm proposing to split "AskFm" app into 3 modules: 
+		askfm-dto    - will contain reusable components like DTOs, constants, types and shared utilities.
+		askfm-ws-api - for service oriented architecture it is a good practice to have your WS-API exposed to be used in 3d party systems.
+		askfm-web    - main application module.  
+		
+		*askfm-android-client - by adding this module I just wanted to show how easy we can start building our WS/RS consumer.  
+	
+
+Frameworks/technologies
+	One of the requirements: "How easy it is to run and deploy the service". 
+	For this reason best solution will be embedded H2 database - lightweight and  very fast, so we woun't need to install Oracle for this prototype.
+	Beside that we will use standard combination of Spring and Hibernate.   
+	I prefer to use Constretto framework to deal with application properties.
+	And the most important is Apache CXF - helps to build and develop services like JAX-WS and JAX-RS supporting variety of protocols such as SOAP, XML/HTTP, RESTful HTTP
+
+Package structure
+	All packages starts with preffix com.dmma.askfm (whre dmma is DMitrijs MArcemkovs).
+	core - package will contain application business layer, different configuration classes, 
+		datainitializer (since we have in memory DB, it would be good to start application with already pre filled data) 
+	db - persistance layer
+	web - web layer (here could be classes ralated to spring MVC, like controllers, handlers and GWT modules)
+	ws - will contain WS and RS services implementations
+	
+Profanity filter service
+	There are many different ways to perform Profanity check - invoke different specially oriented 3d party web services or systems, 
+	invent your own crazy algorithms and store dictionary in a DB. 
+	For this prototype we will store all our "bad words" in local profanityFilter.properties file.
+	On startup, ProfanityAppService will load all listed words into local Set<String> variable.
+	Validation algoritm will contain 2 steps:
+	  1. remove all non alphabetic characters and split sentance into String(word) array
+	  2. check each word (if length of word > 1) from result array against badWors set.  
+	Not perfect, but it will work for demo.    
+	
+
+Location service
+	Lets use Gson to parse TELIZE GeoIP response into POJO - it will make our life easier in future.
+
+N request per second
+	Every time we have a request to save a question, we could querry BD to count number of records in given time frame.
+	(it was my first idea) But this will kill performance 
+	Simplest way would be to have something like Map<String, Long> (ConcurrentHashMap) to store country code and last request timestamp.
+
+Question service
+	Main business service that will implement several methods like findAll, findByCountry (or better in general findByFilter(QuestionFilter filter))
+	Most interesting place in this service is publishQuestion method.
+	Since we need to reach high performance (minimal response time) and 
+	we can't forecast how long time it will take to detect country code and perform profanity check, 
+	lets run those processes in parallel usin java.util.concurrent.ExecutorService.
+
+WS/RS
+	RS and WS services will be configured in applicationContext-ws.xml using ApacheCXF support
+	
+Testing/Web view
+	A simple wepp page should be created to illustrate RS functionality.
+	
+	 
+
