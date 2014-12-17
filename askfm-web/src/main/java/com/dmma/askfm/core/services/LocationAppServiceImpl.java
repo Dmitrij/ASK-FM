@@ -15,6 +15,7 @@ import com.dmma.askfm.dto.shared.callbacks.GeoIpJSON;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+
 public class LocationAppServiceImpl implements LocationAppService{
 	// --- Constants ---
 	private final static Logger LOG = LoggerFactory.getLogger(LocationAppServiceImpl.class);
